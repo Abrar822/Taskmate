@@ -44,7 +44,7 @@ export default function Header({ input, setInput, setTask, tasks, setMsg, editId
   return ( 
     <>
       <div className="header">
-        <h1 className="title">To-Do-App</h1>
+        <h1 className="title">Taskmate</h1>
       </div>
       <div className="inputContainer">
         <input type="text" placeholder='Add Your New To-Do' value={input} onChange={(e) => setInput(e.target.value)}/>
@@ -52,4 +52,5 @@ export default function Header({ input, setInput, setTask, tasks, setMsg, editId
       </div>
     </>
   )
+
 }
