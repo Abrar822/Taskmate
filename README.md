@@ -12,6 +12,7 @@ A clean, responsive, and feature-rich **Task Management Web Application** built 
 * Edit existing tasks
 * Delete tasks
 * Mark tasks as **Completed / Incomplete**
+* Safe delete confirmation prompt to prevent accidental deletions
 
 🔍 **Smart Search & Filters**
 
