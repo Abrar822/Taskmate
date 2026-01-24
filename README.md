@@ -1,4 +1,4 @@
-# 📝 To-Do App – Smart Task Manager
+# 📝 Taskmate – Smart Task Manager
 
 A clean, responsive, and feature-rich **Task Management Web Application** built using **React.js**. This app helps users manage daily tasks efficiently with a smooth user experience and modern UI.
 
