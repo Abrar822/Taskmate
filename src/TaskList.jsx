@@ -1,6 +1,6 @@
 import './App.css'
 
-export default function TaskList({ tasks, search, setTask, setMsg, editId, setEditId, setInput, input, activeFilter }) {
+export default function TaskList({ tasks, search, setTask, setMsg, editId, setEditId, setInput, input, activeFilter, setDeleteMsg, deleteMsg, setDeleteId }) {
 
   let filtered = (search.trim() !== '') ? tasks.filter(t => t.task.toLowerCase().includes(search.trim().toLowerCase())) : tasks.map(t => t)
 
@@ -24,8 +24,8 @@ export default function TaskList({ tasks, search, setTask, setMsg, editId, setEd
   }
 
   function deleteTask(id) {
-    setTask(tasks.filter(t => t.id !== id))
-    setMsg('Task Deleted Successfully.')
+    setDeleteId(id)
+    setDeleteMsg(true)
   }
 
   return (
