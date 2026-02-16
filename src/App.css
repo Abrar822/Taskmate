@@ -5,21 +5,32 @@
   font-family: "Poppins", sans-serif;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
 button:hover {
   transform: scale(1.05);
+  transform: translateY(-1px) scale(1.05);
 }
 
 button:active {
   transform: scale(0.95);
 }
 
+input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.15);
+}
+
 body {
-  background-color: #f0f1f1;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   max-width: 100vw;
   min-height: 100dvh;
+  background: linear-gradient(180deg, #f4f6f8, #eef1f4);
 }
 
 #root {
@@ -33,10 +44,30 @@ body {
 }
 
 .title {
-  margin: 10px;
   color: #000000;
   font-family: sans-serif;
-  margin-bottom: 60px;
+  margin: 16px 0 60px;
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.text {
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+
+.titleMsgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: sticky;
+  top: 0px;
+  width: 90vw;
+  z-index: 3;
+  padding-bottom: 10px;
+  background: #f4f6f8;
 }
 
 .msg {
@@ -44,37 +75,39 @@ body {
   top: 80px;
   height: 45px;
   min-width: 400px;
-  background-color: #6c63ff;
+  background-color: #4a90e2;
   border: 2px solid #ffffff;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .deleteMsg {
   position: absolute;
-  top: 80px;
-  height: 45px;
+  top: 70px;
   min-width: 400px;
-  background-color: #6c63ff;
+  background-color: #4a90e2;
   border: 2px solid #ffffff;
-  border-radius: 5px;
+  border-radius: 10px;
   color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 25px;
   z-index: 2;
+  flex-direction: column;
+  padding: 5px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .deleteMsg .deletionBtns {
   background-color: #ffffff;
-  color: #6c63ff;
-  height: 30px;
-  border-radius: 5px;
+  color: #4a90e2;
+  height: 25px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,14 +124,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #6c63ff;
+  background-color: #4a90e2;
   border: 2px solid #ffffff;
-  border-radius: 5px;
+  border-radius: 10px;
   gap: 25px;
   z-index: 1;
   max-width: 400px;
   width: 95%;
   height: 45px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
 }
 
 .stats {
@@ -110,7 +144,8 @@ body {
   align-items: center;
 }
 
-.inputContainer, .searchContainer {
+.inputContainer,
+.searchContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -123,7 +158,7 @@ body {
 }
 
 .searchContainer {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .moreFilter {
@@ -133,14 +168,14 @@ body {
   gap: 35px;
   width: 100%;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 35px;
 }
 
 .moreFilter button {
   background-color: #ffffff;
   color: black;
-  height: 42px;
-  border-radius: 5px;
+  height: 40px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,45 +183,32 @@ body {
 }
 
 .moreFilter button.active {
-  background-color: #6c63ff;
+  background-color: #4a90e2;
   color: #ffffff;
 }
 
-.inputContainer input, .searchBar {
-  height: 45px;
+.inputContainer input,
+.searchBar {
+  height: 40px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   border: 1px solid #bfbfbf;
   background-color: #ffffff;
   padding: 5px 10px;
   font-size: 1.1rem;
 }
 
-.searchBtn {
-  height: 42px;
-  width: 80px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px 10px;
-  background-color: #6c63ff;
-  color: #ffffff;
-  border: 1px solid #6c63ff;
-  transition: all 0.2s ease;
-}
-
 .addTask {
-  height: 45px;
-  width: 50px;
-  border-radius: 5px;
+  height: 40px;
+  width: 45px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
-  background-color: #6c63ff;
+  background-color: #4a90e2;
   color: #ffffff;
-  border: 1px solid #6c63ff;
+  border: 1px solid #4a90e2;
   transition: all 0.2s ease;
 }
 
@@ -208,13 +230,112 @@ li {
   background-color: #dbdada;
   border: 1px solid #bfbfbf;
   margin: 10px;
-  padding: 10px;
+  padding: 7px 10px;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 10px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.taskContainer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  gap: 15px;
+}
+
+.date {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.dateInputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #bfbfbf;
+  background-color: #ffffff;
+  color: #4a90e2;
+  width: 290px;
+}
+
+.dateInputContainer input {
+  background-color: #eef1f4;
+  width: 180px;
+  color: #4a90e2;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  margin: 0 2px;
+  border: none;
+  outline: none;
+}
+
+.submitDeadline {
+  height: 25px;
+  /* width: 25px; */
+  width: 110px;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+  outline: none;
+  color: #4a90e2;
+  border: 1px solid #4a90e2;
+  background-color: transparent;
+  margin: 0 2px;
+}
+
+.dateLabel {
+  display: none;
+}
+
+.date span {
+  display: inline-block;
+  /* background-color: #4a90e2; */
+  background-color:#94a3b8;
+  color: #ffffff;
+  padding: 2px 5px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+}
+
+.date span {
+  width: 220px;
+  margin: 0;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.date div {
+  margin: 0;
+  padding: 5px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.date strong {
+  font-size: 0.9rem;
+  padding-right: 10px;
 }
 
 .edited {
@@ -234,12 +355,13 @@ li {
 .editTask,
 .check,
 .incomplete {
-  height: 40px;
-  width: 40px;
+  height: 37px;
+  width: 37px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
+  /* background-color: #ff6b6b; */
   background-color: #ff6b6b;
   margin: 2px;
   transition: all 0.2s ease;
@@ -250,11 +372,12 @@ li {
 }
 
 .check {
-  background-color: green;
+  background-color: #22c55e;
 }
 
 .incomplete {
-  background-color: #4a90e2;
+  /* background-color: #4a90e2; */
+  background-color: #94a3b8;
 }
 
 @media screen and (max-width: 800px) {
@@ -282,11 +405,18 @@ li {
     min-width: 0px;
     width: 95%;
   }
+  .text {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
   .moreFilter {
     gap: 20px;
   }
   .topContainer {
     max-width: none;
+  }
+  .titleMsgContainer {
+    width: 100%;
   }
 }
 
@@ -299,20 +429,55 @@ li {
   .editTask,
   .check,
   .incomplete {
-    height: 40px;
-    width: 40px;
+    height: 37px;
+    width: 37px;
     font-size: 1rem;
   }
-  
+
   ul {
     margin-top: 10px;
   }
-  
+
   li {
     margin: 7px;
     padding: 7px;
-    flex-direction: column;
     font-size: 1.1rem;
+  }
+
+  .taskContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .date {
+    flex-direction: column;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+  }
+
+  .dateLabel {
+    display: inline-block;
+  }
+
+  .date span,
+  .date div {
+    width: 100%;
+    margin: 0;
+    padding: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .date span {
+    background-color: #94a3b8;
   }
 
   .btns {
@@ -322,27 +487,48 @@ li {
   }
 
   .deleteMsg {
-    height: 45px;
     gap: 10px;
     z-index: 2;
-    width: 95%;
     min-width: 0px;
+    padding-bottom: 10px;
+  }
+
+  .topContainer,
+  .msg,
+  .deleteMsg {
+    width: 98%;
   }
 
   .deleteMsg .btns {
-    gap: 10px;
+    gap: 30px;
     margin: 0px;
   }
 
   .deleteMsg .btns button {
     width: 50px;
   }
+
+  .date div {
+    width: auto;
+  }
+
+  .dateInputContainer {
+    width: 250px;
+  }
+
+  .dateInputContainer input {
+    width: 160px;
+  }
+
+  .submitDeadline {
+    width: 90px;
+  }
 }
 
 @media screen and (max-width: 420px) {
   #root {
     width: 100%;
-    margin: 0 15px;
+    margin: 0 10px;
   }
 
   li {
